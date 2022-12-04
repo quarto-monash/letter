@@ -1,0 +1,15 @@
+title: Monash Letter Format Template
+author: Rob J Hyndman
+version: 0.1.0
+contributes:
+  formats:
+    pdf:
+      template: monashletter.tex
+      pdf-engine: pdflatex
+      format-resources:
+        - AACSB.png
+        - AMBA.png
+        - EQUIS.png
+        - MBSportrait.jpg
+        - monash2.png
+        - sigfile.png
