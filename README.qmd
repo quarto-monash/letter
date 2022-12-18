@@ -55,8 +55,4 @@ quarto install extension numbats/monash-quarto-letter
 
 - [template.qmd](template.qmd)
 
-```{r fig.width=4, out.width="100%", echo=FALSE}
-#| fig-link: examples/template.pdf
-knitr::include_graphics("examples/template.png", dpi = 600)
-```
-
+[![](examples/template.png)](examples/template.pdf)
