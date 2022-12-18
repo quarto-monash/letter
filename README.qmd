@@ -1,0 +1,62 @@
+---
+format: gfm
+---
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+```{r}
+#| include: false
+# Create pdf and png version of template
+library(tidyverse)
+library(quarto)
+library(magick)
+
+# Render template
+quarto_render(input = "template.qmd")
+# Clean up resource files
+c(fs::dir_ls("_extensions/letter", glob = "*.png"),
+  fs::dir_ls("_extensions/letter", glob = "*.jpg")) |>
+  stringr::str_remove("_extensions/letter/") |>
+  fs::file_delete()
+# Convert rendered PDF to PNG
+image_read_pdf("template.pdf") |>
+  image_montage(geometry = "x2000+25+35", tile = "3", bg = "grey92", shadow = TRUE) |>
+  image_convert(format = "png") |>
+  image_write("examples/template.png")
+# Move pdf to examples folder
+fs::file_move("template.pdf", "examples/template.pdf")
+```
+
+# Monash Letter Format Template
+
+This is a Quarto template that assists you in creating a letter on Monash University letterhead
+
+## Creating a new letter
+
+You can use this as a template to create a letter.
+To do this, use the following command:
+
+```bash
+quarto use template numbats/monash-quarto-letter
+```
+
+This will install the extension and create an example qmd file that you can use as a starting place for your letter.
+
+## Installation for existing document
+
+You may also use this format with an existing Quarto project or document.
+From the quarto project or document directory, run the following command to install this format:
+
+```bash
+quarto install extension numbats/monash-quarto-letter
+```
+
+## Example
+
+- [template.qmd](template.qmd)
+
+```{r fig.width=4, out.width="100%", echo=FALSE}
+#| fig-link: examples/template.pdf
+knitr::include_graphics("examples/template.png", dpi = 600)
+```
+
