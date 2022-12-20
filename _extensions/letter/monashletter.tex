@@ -253,6 +253,9 @@ $endfor$
 \setstretch{$spacing$}
 $body$
 \closing{$closing$\\[0.2cm]\hspace*{0.5cm}\includegraphics[height=1.5cm]{$fromsignature$}}
+$if(ps)$
+\ps{$ps$}
+$endif$
 $for(include-after)$
 $include-after$
 
