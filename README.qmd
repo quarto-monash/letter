@@ -18,10 +18,10 @@ fs::dir_delete("_extensions/numbats")
 # Convert rendered PDF to PNG
 image_read_pdf("template.pdf", pages = 1) |>
   image_montage(geometry = "x500+25+35", tile = 1, bg = "grey92", shadow = TRUE) |>
-  image_convert(format = "png") |> 
+  image_convert(format = "png") |>
   image_write("examples/template.png")
 # Move pdf to examples folder
-fs::file_copy("template.pdf", "examples/template.pdf", overwrite = TRUE)
+fs::file_move("template.pdf", "examples/template.pdf")
 ```
 
 # Monash Letter Format Template
@@ -49,7 +49,5 @@ quarto install extension numbats/monash-quarto-letter
 ```
 
 ## Example
-
-- [template.qmd](template.qmd)
 
 [![](examples/template.png)](examples/template.pdf)
