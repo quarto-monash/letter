@@ -17,7 +17,7 @@ quarto_render(input = "template.qmd")
 fs::dir_delete("_extensions/numbats")
 # Convert rendered PDF to PNG
 image_read_pdf("template.pdf", pages = 1) |>
-  image_montage(geometry = "x500+25+35", tile = 1, bg = "grey92", shadow = TRUE) |>
+  image_montage(geometry = "x1000+25+35", tile = 1, bg = "grey92", shadow = TRUE) |>
   image_convert(format = "png") |>
   image_write("examples/template.png")
 # Move pdf to examples folder
