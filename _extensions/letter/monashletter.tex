@@ -3,8 +3,9 @@ $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
 \usepackage{bera}
+\usepackage[charter,expert]{mathdesign}
 \usepackage[lf,t]{FiraSans}
-\usepackage[scale=0.85]{sourcecodepro}
+\usepackage[scale=0.9]{sourcecodepro}
 $endif$
 $if(linestretch)$
 \usepackage{setspace}
