@@ -12,9 +12,9 @@ library(quarto)
 library(magick)
 
 # Render template
-fs::dir_copy("_extensions/letter", "_extensions/numbats/letter")
+fs::file_copy("_extensions/letter/sigfile.png", "sigfile.png", overwrite = TRUE)
 quarto_render(input = "template.qmd")
-fs::dir_delete("_extensions/numbats")
+fs::file_delete(c("AACSB.png","AMBA.png","EQUIS.png","MBSportrait.jpg","monash2.png","sigfile.png"))
 # Convert rendered PDF to PNG
 image_read_pdf("template.pdf", pages = 1) |>
   image_montage(geometry = "x1000+25+35", tile = 1, bg = "grey92", shadow = TRUE) |>

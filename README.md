@@ -30,8 +30,4 @@ quarto install extension numbats/monash-quarto-letter
 
 ## Example
 
-<div>
-
 [![](examples/template.png)](examples/template.pdf)
-
-</div>
