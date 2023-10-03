@@ -15,7 +15,7 @@ library(magick)
 fs::file_copy("_extensions/letter/sigfile.png", "sigfile.png", overwrite = TRUE)
 system("sed -i 's/^#fromsignature/fromsignature/' template.qmd")
 quarto_render(input = "template.qmd")
-system("sed -i 's/#fromsignature/#fromsignature/' template.qmd")
+system("sed -i 's/^fromsignature/#fromsignature/' template.qmd")
 fs::file_delete(c("AACSB.png","AMBA.png","EQUIS.png","MBSportrait.jpg","monash2.png","sigfile.png"))
 # Convert rendered PDF to PNG
 image_read_pdf("template.pdf", pages = 1) |>

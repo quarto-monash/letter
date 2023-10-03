@@ -5,7 +5,7 @@ fromtitle: Professor
 fromWWW: curie.com
 fromemail: Pierre.Curie@monash.edu
 fromphone: +61 3 9905 5555
-fromsignature: sigfile.png
+#fromsignature: sigfile.png
 toname: Helen of Troy
 toaddress:
   - University of Greece
