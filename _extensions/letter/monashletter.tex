@@ -251,7 +251,10 @@ $endfor$
 \opening{$opening$}
 \setstretch{$spacing$}
 $body$
-\closing{$closing$\\[0.2cm]\hspace*{0.5cm}\includegraphics[height=1.5cm]{$fromsignature$}}
+\closing{$closing$\\[0.2cm]\hspace*{0.5cm}
+$if(fromsignature)$
+\includegraphics[height=1.5cm]{$fromsignature$}}
+$endif$
 $if(ps)$
 \ps{$ps$}
 $endif$
