@@ -1,18 +1,18 @@
 ---
-fromname: Pierre Curie
-fromqualifications: Nobel Prize, PhD
-fromtitle: Professor
-fromWWW: curie.com
-fromemail: Pierre.Curie@monash.edu
-fromphone: +61 3 9905 5555
+author: Pierre Curie
+qualifications: Nobel Prize, PhD
+position: Professor
+www: curie.com
+email: Pierre.Curie@monash.edu
+phone: +61 3 9905 5555
 #fromsignature: sigfile.png
-toname: Helen of Troy
-toaddress:
+address:
+  - Helen of Troy
   - University of Greece
   - Athens
 opening: "Dear Helen"
 closing: "Best wishes"
-spacing: 1.4
+linestretch: 1.4
 ps: |
   PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
 format: letter-pdf
