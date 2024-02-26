@@ -7,11 +7,11 @@ email: Pierre.Curie@monash.edu
 phone: +61 3 9905 5555
 #signature: sigfile.png
 address:
-  - Helen of Troy
-  - University of Greece
-  - Athens
-opening: "Dear Helen"
-closing: "Best wishes"
+  - Physics, Chemistry and Mathematics
+  - University of Paris
+  - Paris
+opening: "Dear Pierre"
+closing: "Sincerely"
 linestretch: 1.4
 ps: |
   PS: Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
