@@ -7,10 +7,10 @@ email: Pierre.Curie@monash.edu
 phone: +61 3 9905 5555
 #signature: sigfile.png
 address:
-  - Physics, Chemistry and Mathematics
-  - University of Paris
-  - Paris
-opening: "Dear Pierre"
+  - Hypatia
+  - University of Alexandria
+  - Egypt
+opening: "Dear Hypatia"
 closing: "Sincerely"
 linestretch: 1.4
 ps: |
