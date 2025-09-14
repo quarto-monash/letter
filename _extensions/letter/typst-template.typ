@@ -170,31 +170,21 @@
 
   closing
 
-if(sig != "" and sig != none) {
-  v(-0.2cm)
-   pad(left: 0.5cm)[
-    #let sig-path = if type(sig) == content {
-      repr(sig).slice(1, -1) // Remove quotes from repr
-    } else {
-      sig
-    }
-    #image(sig-path, height: 1.5cm)
-  ]
-} else {
-  v(1cm)
-}
-if ps != none {
-  place(
-    bottom + left,
-    dx: 0cm,
-    dy: 0cm, // Position 1cm from bottom of page
-    context {
-      let page-num = here().page()
-      // Only place PS at bottom if it's on the last page or if you want it on every page
-      block(width: 100%)[
-        #ps
-      ]
-    }
-  )
-}
+  if(sig != "" and sig != none) {
+    v(-0.2cm)
+    pad(left: 0.5cm)[
+      #let sig-path = if type(sig) == content {
+        repr(sig).slice(1, -1) // Remove quotes from repr
+      } else {
+        sig
+      }
+      #image(sig-path, height: 1.5cm)
+    ]
+  } else {
+    v(1cm)
+  }
+  if ps != none {
+    v(1cm)
+    ps
+  }
 }
