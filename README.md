@@ -5,7 +5,9 @@
 # Monash Letter Format Template
 
 This is a Quarto template that assists you in creating a letter on
-Monash University letterhead
+Monash University letterhead. There are two versions of the template,
+one using LaTeX (`letter-pdf`), and one using Typst (`letter-typst`).
+The latter is faster to render.
 
 ## Creating a new letter
 
