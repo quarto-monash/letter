@@ -1,4 +1,7 @@
 \begin{letter}{$for(address)$$address$$sep$\\$endfor$}
 $if(opening)$
 \opening{$opening$}
+$if(subject)$
+\textbf{Re: $subject$}
+$endif$
 $endif$
