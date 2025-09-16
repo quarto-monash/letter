@@ -50,7 +50,11 @@
     }
   )
 
-  set par(justify: true, leading: linestretch * 0.7em)
+  set par(
+    justify: true,
+    leading: linestretch * 0.7em,
+    spacing: linestretch * 1.3em
+  )
   set text(lang: lang,
            region: region,
            font: font,
@@ -140,7 +144,7 @@
     hide("a")
   })
 
-  v(0.5cm)
+  v(0.25cm)
 
   // Display recipient
   if recipient != none {
@@ -172,7 +176,7 @@
 
   if(sig != "" and sig != none) {
     v(-0.2cm)
-    pad(left: 0.5cm)[
+    pad(left: 0.5cm, bottom: -0.5cm)[
       #let sig-path = if type(sig) == content {
         repr(sig).slice(1, -1) // Remove quotes from repr
       } else {
