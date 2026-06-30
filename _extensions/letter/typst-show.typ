@@ -57,6 +57,16 @@ $endif$
 $if(phone)$
   phone: "$phone$",
 $endif$
+$if(department)$
+  department: [$department$],
+$endif$
+  show-banner: "$show-banner$" != "false",
+$if(banner-left-image)$
+  banner-left-image: [$banner-left-image$],
+$endif$
+$if(banner-right-image)$
+  banner-right-image: [$banner-right-image$],
+$endif$
 $if(linestretch)$
   linestretch: $linestretch$,
 $endif$

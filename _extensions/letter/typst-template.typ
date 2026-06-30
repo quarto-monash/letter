@@ -17,6 +17,9 @@
   phone: none,
   department: "Department of Econometrics & Business Statistics",
   university: "Monash University, Victoria 3800, Australia.",
+  show-banner: true,
+  banner-left-image: "monash2.png",
+  banner-right-image: "MBSportrait.jpg",
   ps: none,
   opening: "To whom it may concern",
   closing: "Yours sincerely",
@@ -123,18 +126,26 @@
     }
   )
 
-  v(-16pt)
-  grid(
-      columns: (1fr, 1fr),
-      align: (left, right),
-      [
-        #image("monash2.png", height: 1.5cm)
-      ],
-      [
-        #image("MBSportrait.jpg", height: 1.5cm)
-      ]
-  )
-  v(25pt)
+  let image-path(path) = if type(path) == content {
+    content-to-string(path)
+  } else {
+    path
+  }
+
+  if show-banner {
+    v(-16pt)
+    grid(
+        columns: (1fr, 1fr),
+        align: (left, right),
+        [
+          #image(image-path(banner-left-image), height: 1.5cm)
+        ],
+        [
+          #image(image-path(banner-right-image), height: 1.5cm)
+        ]
+    )
+    v(25pt)
+  }
 
   // Display date. If there's no date add some hidden
   // text to keep the same spacing.
