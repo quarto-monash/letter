@@ -60,7 +60,9 @@ $endif$
 $if(department)$
   department: [$department$],
 $endif$
-  show-banner: "$show-banner$" != "false",
+$if(branding)$
+  branding: "$branding$",
+$endif$
 $if(banner-left-image)$
   banner-left-image: [$banner-left-image$],
 $endif$

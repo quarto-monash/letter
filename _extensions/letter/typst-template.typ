@@ -17,7 +17,7 @@
   phone: none,
   department: "Department of Econometrics & Business Statistics",
   university: "Monash University, Victoria 3800, Australia.",
-  show-banner: true,
+  branding: "full",
   banner-left-image: "monash2.png",
   banner-right-image: "MBSportrait.jpg",
   ps: none,
@@ -67,13 +67,25 @@
   // Make all links blue
   show link: set text(fill: rgb(0, 0, 255))
 
+  let text-value(value) = if type(value) == content {
+    content-to-string(value)
+  } else {
+    value
+  }
+
+  let branding-mode = text-value(branding)
+
+  if not ("full", "logo", "none").contains(branding-mode) {
+    panic("branding must be one of: full, logo, none")
+  }
+
   // Place footer content on first page only
   place(
     bottom + right,
     dx: 0.7cm,
     dy: 3.5cm,
     context {
-      if here().page() == 1 {
+      if here().page() == 1 and branding-mode == "full" {
         grid(
           columns: 3,
           column-gutter: 9pt,
@@ -119,20 +131,18 @@
             }
             #contact-items.join([#h(10pt)])
           ]
-          #v(1pt)
-          ABN: 12 377 614 012    CRICOS Provider Number: 00008C
+          #if(branding-mode != "none") [
+            #v(1pt)
+            ABN: 12 377 614 012    CRICOS Provider Number: 00008C
+          ]
         ]
       }
     }
   )
 
-  let image-path(path) = if type(path) == content {
-    content-to-string(path)
-  } else {
-    path
-  }
+  let image-path(path) = text-value(path)
 
-  if show-banner {
+  if branding-mode == "full" {
     v(-16pt)
     grid(
         columns: (1fr, 1fr),
@@ -144,6 +154,10 @@
           #image(image-path(banner-right-image), height: 1.5cm)
         ]
     )
+    v(25pt)
+  } else if branding-mode == "logo" {
+    v(-16pt)
+    image(image-path(banner-left-image), height: 1.5cm)
     v(25pt)
   }
 
