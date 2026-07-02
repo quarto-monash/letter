@@ -5,6 +5,8 @@ position: Professor
 www: curie.com
 email: Pierre.Curie@monash.edu
 phone: +61 3 9905 5555
+department: "test"
+branding: "mbs"
 #signature: sigfile.png
 address:
   - Hypatia

@@ -4,3 +4,6 @@ template.tex
 .Rproj.user
 .quarto/
 .history
+
+/.quarto/
+**/*.quarto_ipynb

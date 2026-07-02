@@ -17,6 +17,9 @@
   phone: none,
   department: "Department of Econometrics & Business Statistics",
   university: "Monash University, Victoria 3800, Australia.",
+  branding: "mbs",
+  banner-left-image: "monash2.png",
+  banner-right-image: "MBSportrait.jpg",
   ps: none,
   opening: "To whom it may concern",
   closing: "Yours sincerely",
@@ -64,13 +67,25 @@
   // Make all links blue
   show link: set text(fill: rgb(0, 0, 255))
 
+  let text-value(value) = if type(value) == content {
+    content-to-string(value)
+  } else {
+    value
+  }
+
+  let branding-mode = text-value(branding)
+
+  if not ("mbs", "monash", "none").contains(branding-mode) {
+    panic("branding must be one of: mbs, monash, none")
+  }
+
   // Place footer content on first page only
   place(
     bottom + right,
     dx: 0.7cm,
     dy: 3.5cm,
     context {
-      if here().page() == 1 {
+      if here().page() == 1 and branding-mode == "mbs" {
         grid(
           columns: 3,
           column-gutter: 9pt,
@@ -116,25 +131,35 @@
             }
             #contact-items.join([#h(10pt)])
           ]
-          #v(1pt)
-          ABN: 12 377 614 012    CRICOS Provider Number: 00008C
+          #if(branding-mode != "none") [
+            #v(1pt)
+            ABN: 12 377 614 012    CRICOS Provider Number: 00008C
+          ]
         ]
       }
     }
   )
 
-  v(-16pt)
-  grid(
-      columns: (1fr, 1fr),
-      align: (left, right),
-      [
-        #image("monash2.png", height: 1.5cm)
-      ],
-      [
-        #image("MBSportrait.jpg", height: 1.5cm)
-      ]
-  )
-  v(25pt)
+  let image-path(path) = text-value(path)
+
+  if branding-mode == "mbs" {
+    v(-16pt)
+    grid(
+        columns: (1fr, 1fr),
+        align: (left, right),
+        [
+          #image(image-path(banner-left-image), height: 1.5cm)
+        ],
+        [
+          #image(image-path(banner-right-image), height: 1.5cm)
+        ]
+    )
+    v(25pt)
+  } else if branding-mode == "monash" {
+    v(-16pt)
+    image(image-path(banner-left-image), height: 1.5cm)
+    v(25pt)
+  }
 
   // Display date. If there's no date add some hidden
   // text to keep the same spacing.
