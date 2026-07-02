@@ -17,7 +17,7 @@
   phone: none,
   department: "Department of Econometrics & Business Statistics",
   university: "Monash University, Victoria 3800, Australia.",
-  branding: "full",
+  branding: "mbs",
   banner-left-image: "monash2.png",
   banner-right-image: "MBSportrait.jpg",
   ps: none,
@@ -75,8 +75,8 @@
 
   let branding-mode = text-value(branding)
 
-  if not ("full", "logo", "none").contains(branding-mode) {
-    panic("branding must be one of: full, logo, none")
+  if not ("mbs", "monash", "none").contains(branding-mode) {
+    panic("branding must be one of: mbs, monash, none")
   }
 
   // Place footer content on first page only
@@ -85,7 +85,7 @@
     dx: 0.7cm,
     dy: 3.5cm,
     context {
-      if here().page() == 1 and branding-mode == "full" {
+      if here().page() == 1 and branding-mode == "mbs" {
         grid(
           columns: 3,
           column-gutter: 9pt,
@@ -142,7 +142,7 @@
 
   let image-path(path) = text-value(path)
 
-  if branding-mode == "full" {
+  if branding-mode == "mbs" {
     v(-16pt)
     grid(
         columns: (1fr, 1fr),
@@ -155,7 +155,7 @@
         ]
     )
     v(25pt)
-  } else if branding-mode == "logo" {
+  } else if branding-mode == "monash" {
     v(-16pt)
     image(image-path(banner-left-image), height: 1.5cm)
     v(25pt)
